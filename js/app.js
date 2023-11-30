@@ -135,6 +135,7 @@ class UI {
       ui.imprimirAlerta('El presupuesto se ha agotado', 'error');
       formulario.querySelector('button[type="submit"]').disabled = true;
     }
+    
   }
 
 }
@@ -208,6 +209,9 @@ function eliminarGasto(id){
   const {gastos, restante} = presupuesto
   ui.mostrarGastos(gastos);
   ui.actulizarRestante(restante)
+  if(restante >= 0){
+    formulario.querySelector('button[type="submit"]').disabled = false;
+  }
   ui.comprobarPresupuesto(presupuesto)
 }
 
